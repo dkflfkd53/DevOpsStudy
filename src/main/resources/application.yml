@@ -34,11 +34,11 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_TOKEN}}
+          username: ${{secrets.DOCKERHUB_USERNAME:dkflfkd53}}
+          password: ${{secrets.DOCKERHUB_TOKEN:dckr_pat_kzJFhPZLdG_bvFB-_Hn1kB7NYHg}}
 
       - name: Build the Docker image
         run: docker build --platform amd64 --build-arg DEPENDENCY=build/dependency -t dkflfkd53/cicd-practice --platform linux/amd64 .
 
       - name: Docker Push
-        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/cicd-practice
+        run: docker push ${{secrets.DOCKERHUB_USERNAME:dkflfkd53}}/cicd-practice
